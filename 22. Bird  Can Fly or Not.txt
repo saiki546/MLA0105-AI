@@ -1,0 +1,13 @@
+bird(swan).
+bird(sparrow).
+bird(eagle).
+bird(duck).
+bird(crow).
+bird(ostrich).
+bird(albatross).
+bird(straling).
+bird(owl).
+bird(kingfisher).
+bird(thrush).
+
+can_fly(X):-bird(X).

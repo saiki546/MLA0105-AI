@@ -1,0 +1,14 @@
+dob(john, date(1990, 5, 15)).
+dob(emma, date(1985, 10, 20)).
+dob(liam, date(1998, 2, 8)).
+dob(sophia, date(2001, 7, 3)).
+dob(noah, date(1994, 9, 25)).
+dob(peter, date(1995,8,9)).
+dob(sandra, date(1995,2,22)).
+dob(sue, date(1996,7,2)).
+
+get_dob(Name, DOB) :-
+    dob(Name, DOB).
+
+same_month_birthday(Month, People) :-
+    findall(Name, (dob(Name, date(_, Month, _))), People).

@@ -1,0 +1,30 @@
+print("RAJESH")
+print("192110536")
+print("Travelling Salesman Problem \n")
+from itertools import permutations
+def calculate_distance(route, distances):
+    total_distance = 0
+    for i in range(len(route) - 1):
+        total_distance += distances[route[i]][route[i + 1]]
+    total_distance += distances[route[-1]][route[0]]
+    return total_distance
+def tsp_bruteforce(distances):
+    num_cities = len(distances)
+    shortest_distance = float('inf')
+    shortest_route = None
+    for route in permutations(range(num_cities)):
+        current_distance = calculate_distance(route, distances)
+        if current_distance < shortest_distance:
+            shortest_distance = current_distance
+            shortest_route = route
+    return shortest_route, shortest_distance
+distances = [
+    [0, 29, 20, 21],
+    [29, 0, 15, 25],
+    [20, 15, 0, 30],
+    [21, 25, 30, 0]
+]
+
+shortest_route, shortest_distance = tsp_bruteforce(distances)
+print("Shortest route:", shortest_route)
+print("Shortest distance:", shortest_distance)
